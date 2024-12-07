@@ -94,7 +94,7 @@ For example, `'activity_1'` is a database from [Spider](https://yale-lily.github
 
 5. **Student** has eight columns. This table can be connected with **Participates_in** by `StuID`.
 
-![](./FuzzySQL/student.png)
+![](./FuzzySQL/Student.png)
 
 We can utilize LLM to generate fuzzy natural language queries. The prompt can be set as
 
