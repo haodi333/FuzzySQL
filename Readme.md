@@ -66,7 +66,7 @@ Interestingly, this small model is able to change the perfect query to correct S
 
 ## Framework
 
-![framework](E:\future_posts\FuzzySQL\framework.png)
+![framework](./FuzzySQL/framework.png)
 
 Explaining: This framework contains 3 modules. We only need to input a weak prompt that makes a fuzzy description of our idea.
 
@@ -78,23 +78,23 @@ For example, `'activity_1'` is a database from [Spider](https://yale-lily.github
 
 1. **Activity** has two columns, with each `actid` corresponding to an `activity_name`.
 
-![](E:\future_posts\FuzzySQL\activity.png)
+![](.\FuzzySQL\activity.png)
 
 2. **Faculty_Participates_in** has two columns, with each `FacID` represents a unique faculty member. This table can be connected with **Activity** by `actid`.
 
-![](E:\future_posts\FuzzySQL\faculty_participates.png)
+![](.\FuzzySQL\faculty_participates.png)
 
 3. **Participates_in** has two columns, with each `stuid` represents a unique student. This table can be connected with **Activity** by `actid`.
 
-![](E:\future_posts\FuzzySQL\participate_in.png)
+![](.\FuzzySQL\participate_in.png)
 
 4. **Faculty** has eight columns. This table can be connected with **Faculty_Participates_in** by `FacID`.
 
-![](E:\future_posts\FuzzySQL\faculty.png)
+![](.\FuzzySQL\faculty.png)
 
 5. **Student** has eight columns. This table can be connected with **Participates_in** by `StuID`.
 
-![](E:\future_posts\FuzzySQL\student.png)
+![](.\FuzzySQL\student.png)
 
 We can utilize LLM to generate fuzzy natural language queries. The prompt can be set as
 
