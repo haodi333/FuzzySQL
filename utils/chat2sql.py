@@ -19,20 +19,20 @@ def execute_query(database, query):
 
 def get_columns(database, table):
     """Retrieve column names of the specified table from the database."""
-    if database == 'hospital_1' and table == 'Procedure':
-        print(table)
+    # if database == 'hospital_1' and table == 'Procedure':
+    #     print(table)
     query = f"PRAGMA table_info({table})"
     columns = execute_query(database, query)
     return [column[1] for column in columns]
 
-def get_unique_values(database, table, column):
+def get_unique_values(database, table, column, thr=5):
     """Retrieve unique values from the specified column of the table."""
     column = f'"{column}"'  
     query = f"SELECT DISTINCT {column} FROM {table}"
     values = execute_query(database, query)
     values = [item[0] for item in values]
-    if len(values) > 5:
-        return values[0:5]
+    if len(values) > thr:
+        return values[0:thr]
     else:
         return values
     
@@ -42,10 +42,7 @@ def res_to_list(res):
         res = ast.literal_eval(res[0])
         return res
     else:
-        try:
-            result = ast.literal_eval(res)
-        except:
-            formatted_string = re.sub(r'(\w+)', r'"\1"', res)
-            result = ast.literal_eval(formatted_string)
-
-        return result
+        match = re.search(r"\[.*?\]", res)
+        content = match.group(0)
+        content_list = ast.literal_eval(content)
+        return content_list
